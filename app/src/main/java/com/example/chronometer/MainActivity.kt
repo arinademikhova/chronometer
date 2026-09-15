@@ -40,5 +40,25 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ChronometerApp() {
 
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Stopwatch") },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    titleContentColor = MaterialTheme.colorScheme.onPrimaryContainer
+                )
+            )
+        }
+    ) { innerPadding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(innerPadding),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
+        }
+        }
 }
