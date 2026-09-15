@@ -98,7 +98,12 @@ fun ChronometerApp() {
 
             // Кнопка START
             Button(
-                onClick = { },
+                onClick = {
+                    if (!isRunning) {
+                        startTimeMillis = SystemClock.elapsedRealtime()
+                        isRunning = true
+                    }
+                },
                 modifier = Modifier
                     .width(140.dp)
                     .height(48.dp)
