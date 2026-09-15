@@ -115,7 +115,12 @@ fun ChronometerApp() {
 
             // Кнопка PAUSE
             Button(
-                onClick = { },
+                onClick = {
+                    if (isRunning) {
+                        accumulatedTimeMillis += SystemClock.elapsedRealtime() - startTimeMillis
+                        isRunning = false
+                    }
+                },
                 modifier = Modifier
                     .width(140.dp)
                     .height(48.dp)
