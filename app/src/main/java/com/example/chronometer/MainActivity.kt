@@ -58,7 +58,46 @@ fun ChronometerApp() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            // счетчик
+            Text(
+                text = "00:00",
+                fontSize = 64.sp,
+                modifier = Modifier.padding(bottom = 32.dp)
+            )
 
+            // Кнопка START
+            Button(
+                onClick = {  },
+                modifier = Modifier
+                    .width(140.dp)
+                    .height(48.dp)
+            ) {
+                Text("START", fontSize = 18.sp)
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Кнопка PAUSE
+            Button(
+                onClick = {  },
+                modifier = Modifier
+                    .width(140.dp)
+                    .height(48.dp)
+            ) {
+                Text("PAUSE", fontSize = 18.sp)
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // Кнопка RESET
+            Button(
+                onClick = {  },
+                modifier = Modifier
+                    .width(140.dp)
+                    .height(48.dp)
+            ) {
+                Text("RESET", fontSize = 18.sp)
+            }
         }
         }
 }
