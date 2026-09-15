@@ -25,6 +25,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,10 +50,10 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ChronometerApp() {
     // Состояние таймера
-    var isRunning by remember { mutableStateOf(false) }
-    var accumulatedTimeMillis by remember { mutableLongStateOf(0L) }
-    var startTimeMillis by remember { mutableLongStateOf(0L) }
-    var displayTimeMillis by remember { mutableLongStateOf(0L) }
+    var isRunning by rememberSaveable { mutableStateOf(false) }
+    var accumulatedTimeMillis by rememberSaveable { mutableLongStateOf(0L) }
+    var startTimeMillis by rememberSaveable { mutableLongStateOf(0L) }
+    var displayTimeMillis by rememberSaveable { mutableLongStateOf(0L) }
 
     // Фоновый отсчет времени при isRunning = true
     LaunchedEffect(isRunning, startTimeMillis, accumulatedTimeMillis) {
@@ -132,7 +133,11 @@ fun ChronometerApp() {
 
             // Кнопка RESET
             Button(
-                onClick = { },
+                onClick = {
+                    isRunning = false
+                    accumulatedTimeMillis = 0L
+                    displayTimeMillis = 0L
+                },
                 modifier = Modifier
                     .width(140.dp)
                     .height(48.dp)
